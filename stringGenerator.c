@@ -2,14 +2,14 @@
 #include <stdlib.h>
 #include <time.h>
 
-int gerarTamanhoString()
+int generateStringSize()
 {
     return rand() % 100 + 1;
 }
 
 void fileprintRandomString(FILE * output)
 {
-    int string_tam = gerarTamanhoString();
+    int string_tam = generateStringSize();
     char * string = (char*) calloc((string_tam+1), sizeof(char));
 
     int i;
