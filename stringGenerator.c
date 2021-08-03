@@ -7,7 +7,7 @@ int gerarTamanhoString()
     return rand() % 100 + 1;
 }
 
-void printRandomString()
+void fileprintRandomString(FILE * output)
 {
     int string_tam = gerarTamanhoString();
     char * string = (char*) calloc((string_tam+1), sizeof(char));
@@ -19,9 +19,7 @@ void printRandomString()
     }
     string[i] = '\0';
 
-    FILE * saida = fopen("strings.txt", "a+");
-    fprintf(saida,"%s\n", string);
-    fclose(saida);
+    fprintf(output,"%s\n", string);
     free(string);
 }
 
@@ -30,8 +28,11 @@ int main()
     srand(time(NULL));
     int N;
     scanf("%d", &N);
+    FILE * output = fopen("strings.txt", "w");
     for(int i = 0; i < N; i++)
-        printRandomString();
+        fileprintRandomString(output);
+
+    fclose(output);
 
     return 0;
 }
