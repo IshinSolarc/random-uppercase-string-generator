@@ -22,7 +22,6 @@ void fileprintRandomString(FILE * output)
     fprintf(output,"%s\n", string);
     free(string);
 }
-
 int main()
 {
     srand(time(NULL));
